@@ -9,7 +9,7 @@ const pharmacy = () => {
         title={
           <span style={{color: "white", opacity:"87%"}}>
             This is a pharmacy software i deeveloped <br />
-            that can be used to manage patient's pharmacy needs in a hospital
+            that can be used to manage patient&apos;s pharmacy needs in a hospital
             
             <p className="mt-[2rem]">[scroll down]</p>
           </span>
