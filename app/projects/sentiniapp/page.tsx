@@ -19,7 +19,7 @@ export default function sentiniapp() {
     return (
         <div>
             <div className={styles.sentini_app} >
-                <WavyBackground  className="mx-auto pb-40 ">
+                <WavyBackground  className="mx-auto pb-40 " backgroundFill="#171717">
                     <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
                         Sentini Mobile App
                     </p>
@@ -31,9 +31,6 @@ export default function sentiniapp() {
             </div>
             <p className="text-center text-[30px]">Slides</p>
             <ParallaxScroll images={images} />
-            <div className="text-red-400">
-                next project
-            </div>
         </div>
     )
 }
