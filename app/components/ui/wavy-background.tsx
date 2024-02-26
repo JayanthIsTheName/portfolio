@@ -51,19 +51,23 @@ export const WavyBackground = ({
   };
 
   const init = () => {
-    canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.innerWidth;
-    h = ctx.canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-    window.onresize = function () {
+    if (typeof window !== 'undefined') {
+      // Code that accesses the document object should be placed here
+      canvas = canvasRef.current;
+      ctx = canvas.getContext("2d");
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
-    };
-    render();
+      nt = 0;
+      window.onresize = function () {
+        w = ctx.canvas.width = window.innerWidth;
+        h = ctx.canvas.height = window.innerHeight;
+        ctx.filter = `blur(${blur}px)`;
+      };
+      render();
+    }
   };
+  
 
   const waveColors = colors ?? [
     "#38bdf8",
