@@ -50,23 +50,62 @@ export const WavyBackground = ({
     }
   };
 
+  // const init = () => {
+  //   if (typeof window !== 'undefined') {
+  //     // Code that accesses the document object should be placed here
+  //     canvas = canvasRef.current;
+  //     ctx = canvas.getContext("2d");
+  //     w = ctx.canvas.width = window.innerWidth;
+  //     h = ctx.canvas.height = window.innerHeight;
+  //     ctx.filter = `blur(${blur}px)`;
+  //     nt = 0;
+  //     window.onresize = function () {
+  //       w = ctx.canvas.width = window.innerWidth;
+  //       h = ctx.canvas.height = window.innerHeight;
+  //       ctx.filter = `blur(${blur}px)`;
+  //     };
+  //     render();
+  //   }
+  // };
+
   const init = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof document !== 'undefined') {
       // Code that accesses the document object should be placed here
       canvas = canvasRef.current;
       ctx = canvas.getContext("2d");
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
+  
+      // Set canvas width and height based on CSS
+      const canvasWidth = canvas.offsetWidth;
+      const canvasHeight = canvas.offsetHeight;
+  
+      // Set canvas width and height
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+  
+      // Set other properties
       ctx.filter = `blur(${blur}px)`;
       nt = 0;
-      window.onresize = function () {
-        w = ctx.canvas.width = window.innerWidth;
-        h = ctx.canvas.height = window.innerHeight;
-        ctx.filter = `blur(${blur}px)`;
-      };
+  
+      // Render initial state
       render();
+  
+      // Add resize event listener to adjust canvas size on window resize
+      window.addEventListener("resize", handleResize);
     }
   };
+  
+  const handleResize = () => {
+    if (typeof document !== 'undefined') {
+      // Update canvas width and height based on CSS
+      const canvasWidth = canvas.offsetWidth;
+      const canvasHeight = canvas.offsetHeight;
+  
+      // Update canvas width and height
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+    }
+  };
+  
   
 
   const waveColors = colors ?? [
