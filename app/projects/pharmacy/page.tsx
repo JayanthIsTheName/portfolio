@@ -14,7 +14,7 @@ const pharmacy = () => {
             <p className="mt-[2rem]">[scroll down]</p>
           </span>
         }
-        src={`/pharmacy/Pateints list.png`}
+        src={"/pharmacy/Pateints list.png"}
         showGradient={false}
       />
     </div>
